@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ristorante La Rotonda - Autentica Cucina Italiana</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <section id="top"></section>
+
+  <header id="navbar" class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="#" class="logo">
+          
+          <span class="logo-text">La Rotonda</span>
+        </a>
+        
+        <nav class="desktop-nav">
+          <a href="#top" class="nav-link">Home</a>
+          <a href="#menu" class="nav-link">Menu</a>
+          <a href="#contact" class="nav-link">Contatti</a>
+        </nav>
+        
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="close-icon hidden">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="mobile-nav hidden">
+      <div class="container">
+        <nav class="mobile-nav-links">
+          <a href="#top" class="nav-link">Home</a>
+          <a href="#menu" class="nav-link">Menu</a>
+          <a href="#contact" class="nav-link">Contatti</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="container">
+      <div class="hero-content">
+        <img src="logobello.png" alt="La Rotonda Logo" width="200" height="200" class="hero-logo">
+        <h1>Ristorante</h1>
+        <h1>"La Rotonda"</h1>
+        <p>Buon cibo, buona compagnia e il mare a due passi. Alla Rotonda ogni scatto è un ricordo da gustare. 🌊🍝📷</p>
+        <a href="#menu" class="btn">Scopri il Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <h2>Il Nostro Menu</h2>
+      <p class="section-description">Piatti semplici preparati con ingredienti di qualità e nel rispetto della tradizione italiana.</p>
+      
+      <div class="tabs">
+        <div class="tabs-header">
+          <button class="tab-btn active" data-tab="antipasti">Gli Antipasti</button>
+          <button class="tab-btn" data-tab="primi">I Primi</button>
+          <button class="tab-btn" data-tab="secondi">I Secondi</button>
+        </div>
+        
+        <div class="tab-content active" id="antipasti">
+          
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-header"><h3>Polpo e patate alla ligure</h3><span class="price">€17.00</span></div><p>Octopus and potatoes with pesto</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Cozze alla marinara</h3><span class="price">€12.00</span></div><p>Mussels marinara</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Tris di mare</h3><span class="price">€18.00</span></div><p>Mixed seafood salad</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Cocktail di gamberi</h3><span class="price">€13.00</span></div><p>Shrimp cocktail</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Crudo e bufala</h3><span class="price">€13.00</span></div><p>Prosciutto and buffalo mozzarella</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Caprese con bufala</h3><span class="price">€12.00</span></div><p>Tomatoes with buffalo mozzarella</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Acciughe impanate</h3><span class="price">€13.00</span></div><p>Fried breaded anchovies</p></div>
+          </div>
+        </div>
+        
+        
+        <div class="tab-content" id="primi">
+          
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-header"><h3>Tagliatelle vongole e zafferano</h3><span class="price">€20.00</span></div><p>Tagliatelle with clams and saffron</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Linguine allo scoglio</h3><span class="price">€17.00</span></div><p>Seafood linguine</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Linguine all’astice</h3><span class="price">€25.00</span></div><p>Linguine with lobster (min. 2 portions)</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Spaghetti alle vongole</h3><span class="price">€18.00</span></div><p>Spaghetti with clams</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Pasta cozze e patate</h3><span class="price">€13.00</span></div><p>Pasta with mussels and potatoes</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Penne gamberi e zucchine</h3><span class="price">€15.00</span></div><p>Penne with shrimp and zucchini</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Carbonara di pesce</h3><span class="price">€15.00</span></div><p>Seafood carbonara</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Trofie Vecchia Genova</h3><span class="price">€13.00</span></div><p>Pasta with pesto</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Gnocchi al ragù</h3><span class="price">€11.00</span></div><p>Gnocchi with meat sauce</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Pasta pomodoro</h3><span class="price">€9.00</span></div><p>Pasta with tomato sauce</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Pasta al ragù</h3><span class="price">€10.00</span></div><p>Pasta with meat sauce</p></div>
+          </div>
+        </div>
+        
+        
+        <div class="tab-content" id="secondi">
+        
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-header"><h3>Frittura mista di pesce</h3><span class="price">€18.00</span></div><p>Mixed fried seafood</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Frittura di calamari</h3><span class="price">€16.00</span></div><p>Fried calamari</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Frittura calamari e gamberi</h3><span class="price">€17.00</span></div><p>Fried calamari and shrimp</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Frittura calamari e verdure pastellate</h3><span class="price">€18.00</span></div><p>Fried calamari with battered vegetables</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Spada alla griglia</h3><span class="price">€16.00</span></div><p>Grilled swordfish</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Orata o branzino al forno</h3><span class="price">€16.00</span></div><p>Baked sea bream or sea bass</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Grigliata mista di pesce</h3><span class="price">€25.00</span></div><p>Mixed grilled fish</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Bistecca alla griglia</h3><span class="price">€16.00</span></div><p>Grilled steak</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Cotoletta con patatine</h3><span class="price">€12.00</span></div><p>Chicken cutlet with fries</p></div>
+            <!-- Contorni -->
+            <div class="menu-item"><div class="menu-item-header"><h3>Patatine fritte</h3><span class="price">€6.00</span></div><p>Fried potatoes</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Insalata mista</h3><span class="price">€6.50</span></div><p>Mixed salad</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Insalata di pomodori</h3><span class="price">€5.00</span></div><p>Tomato salad</p></div>
+            <div class="menu-item"><div class="menu-item-header"><h3>Verdure al vapore</h3><span class="price">€5.00</span></div><p>Steamed vegetables</p></div>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <h2>Scopri anche le nostre pizze</h2>
+        <p>Abbiamo un ricco catalogo di pizze da cui scegliere, tra cui alcune pizze speciali! Scarica il menù per scoprirle tutte 🍕.</p>
+          <a href="menu.pdf" class="btn" download>Scarica il Menu Completo</a>
+        </div>
+        
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contattaci</h2>
+      <p class="section-description">Contattaci per qualsiasi informazione o per prenotazioni</p>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Informazioni</h3>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h4>Indirizzo</h4>
+              <p>Corso G. Matteotti 2, 17019, Varazze (SV), Italia</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h4>Orari di Apertura</h4>
+              <p>Lunedì - Domenica: 12:00 - 15:00, 19:00 - 23:00</p>
+              <p>Giorno di chiusura invernale: Mercoledì</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h4>Telefono</h4>
+              <p>019 939 9498</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h4>Email</h4>
+              <p>larotondavarazze@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="map-container">
+          <div class="map-container">
+            <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.2334343069884!2d8.574353476769535!3d44.35936687107454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d318ca6d69d3eb%3A0xe22c6187f3aa74d4!2sLa%20Rotonda!5e0!3m2!1sit!2sit!4v1714476034773!5m2!1sit!2sit"
+    width="100%"
+    height="100%"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Ristorante La Rotonda</h3>
+          <p>dove godere di un piacevole pasto a 2 passi dal mare</p>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Orari di Apertura</h3>
+          <p>Lunedì - Domenica: 12:00 - 15:00, 19:00 - 23:00</p>
+          <p>Giorno di chiusura invernale: Mercoledì</p>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contatti</h3>
+          <div class="footer-contact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>019 939 9498</span>
+          </div>
+          <div class="footer-contact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Corso G. Matteotti 2, 17019, Varazze (SV), Italia</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Ristorante La Rotonda. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
