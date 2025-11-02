@@ -1,279 +1,683 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ristorante La Rotonda</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Ristorante La Rotonda - Varazze</title>
+  <meta name="description"
+    content="Ristorante La Rotonda a Varazze: pizzeria e cucina italiana a base di pesce a 2 passi dal mare. Prenota al 019 939 9498">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/components.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSRL2KE3X7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NSRL2KE3X7');
+  </script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'serif': ['Playfair Display', 'serif'],
+            'sans': ['Inter', 'sans-serif'],
+          },
+          colors: {
+            'primary': '#e74c3c',
+            'primary-dark': '#c0392b',
+            'secondary': '#2c3e50',
+            'accent': '#f8f9fa',
+          }
+        }
+      }
+    }
+  </script>
 </head>
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NSRL2KE3X7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-NSRL2KE3X7');
-</script>
-<body>
+<body class="font-sans text-gray-800 bg-white">
   <!-- Navigation -->
-  <section id="top"></section>
+  <nav
+    class="navbar fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-50 border-b border-gray-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-3">
+          <img src="assets/images/logobello.png" alt="La Rotonda Logo" class="w-10 h-10 rounded-lg object-cover"
+            width="40" height="40">
+          <span class="font-serif text-2xl font-semibold text-secondary">La Rotonda</span>
+        </div>
 
-  <header id="navbar" class="navbar">
-    <div class="container">
-      <div class="navbar-content">
-        <a href="#" class="logo">
-          
-          <span class="logo-text">La Rotonda</span>
-        </a>
-        
-        <nav class="desktop-nav">
-          <a href="#top" class="nav-link">Home</a>
-          <a href="#menu" class="nav-link">Menu</a>
-          <a href="#contact" class="nav-link">Contatti</a>
-        </nav>
-        
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="close-icon hidden">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home"
+            class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group">Home</a>
+          <a href="#menu"
+            class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group">Menu</a>
+          <a href="#gallery"
+            class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group">Galleria</a>
+          <a href="#contact"
+            class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group">Contatti</a>
+        </div>
+
+        <button id="nav-toggle" class="md:hidden flex flex-col space-y-1 p-2">
+          <span class="bar w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+          <span class="bar w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+          <span class="bar w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
         </button>
       </div>
-    </div>
-    
-    <div class="mobile-nav hidden">
-      <div class="container">
-        <nav class="mobile-nav-links">
-          <a href="#top" class="nav-link">Home</a>
-          <a href="#menu" class="nav-link">Menu</a>
-          <a href="#contact" class="nav-link">Contatti</a>
-        </nav>
+
+      <!-- Mobile Menu -->
+      <div id="nav-menu" class="md:hidden mobile-menu-enter fixed top-16 left-0 w-full bg-white shadow-lg">
+        <div class="flex flex-col py-4">
+          <a href="#home"
+            class="nav-link px-6 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium transition-colors duration-300">Home</a>
+          <a href="#menu"
+            class="nav-link px-6 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium transition-colors duration-300">Menu</a>
+          <a href="#gallery"
+            class="nav-link px-6 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium transition-colors duration-300">Galleria</a>
+          <a href="#contact"
+            class="nav-link px-6 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium transition-colors duration-300">Contatti</a>
+        </div>
       </div>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="hero-overlay"></div>
-    </div>
-    
-    <div class="container">
-      <div class="hero-content">
-        <img src="logobello.png" alt="La Rotonda Logo" width="200" height="200" class="hero-logo">
-        <h1>Ristorante</h1>
-        <h1>"La Rotonda"</h1>
-        <p>Buon cibo, buona compagnia e il mare a due passi. Alla Rotonda ogni scatto è un ricordo da gustare. 🌊🍝📷</p>
-        <a href="#menu" class="btn">Scopri il Menu</a>
+  <section id="home" class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+      style="background-image: url('assets/images/background.png')"></div>
+    <div class="hero-gradient absolute inset-0"></div>
+
+    <div class="relative z-10 max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <img src="assets/images/logobello.png" alt="La Rotonda Logo"
+          class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-6 shadow-2xl" width="128" height="128"
+          loading="eager">
+      </div>
+
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-shadow-lg">
+        Ristorante La Rotonda
+      </h1>
+
+      <p class="text-xl sm:text-2xl font-light mb-4">
+        Buon cibo, buona compagnia e il mare a due passi
+      </p>
+
+      <p class="text-lg mb-12 opacity-90 max-w-2xl mx-auto">
+        Alla Rotonda ogni scatto è un ricordo da gustare. 🌊🍝📷
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#menu"
+          class="btn-primary bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-primary/30">
+          Scopri il Menu
+        </a>
+        <a href="#contact"
+          class="btn-secondary border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-white/30">
+          Prenota
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Menu Section -->
-  <section id="menu" class="menu-section">
-    <div class="container">
-      <h2>Il Nostro Menu</h2>
-      <p class="section-description">Piatti semplici preparati con ingredienti di qualità e nel rispetto della tradizione italiana.</p>
-      
-      <div class="tabs">
-        <div class="tabs-header">
-          <button class="tab-btn active" data-tab="antipasti">Gli Antipasti</button>
-          <button class="tab-btn" data-tab="primi">I Primi</button>
-          <button class="tab-btn" data-tab="secondi">I Secondi</button>
-        </div>
-        
-        <div class="tab-content active" id="antipasti">
-          
-          <div class="menu-items">
-            <div class="menu-item"><div class="menu-item-header"><h3>Polpo e patate alla ligure</h3><span class="price">€17.00</span></div><p>Octopus and potatoes with pesto</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Cozze alla marinara</h3><span class="price">€12.00</span></div><p>Mussels marinara</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Tris di mare</h3><span class="price">€18.00</span></div><p>Mixed seafood salad</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Cocktail di gamberi</h3><span class="price">€13.00</span></div><p>Shrimp cocktail</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Crudo e bufala</h3><span class="price">€13.00</span></div><p>Prosciutto and buffalo mozzarella</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Caprese con bufala</h3><span class="price">€12.00</span></div><p>Tomatoes with buffalo mozzarella</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Acciughe impanate</h3><span class="price">€13.00</span></div><p>Fried breaded anchovies</p></div>
+  <section id="menu" class="py-20 bg-accent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold text-secondary mb-6">Il Nostro Menu</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Piatti semplici preparati con ingredienti di qualità e nel rispetto della tradizione italiana
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button
+          class="tab-btn bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 active"
+          data-tab="antipasti">
+          Antipasti
+        </button>
+        <button
+          class="tab-btn bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300"
+          data-tab="primi">
+          Primi
+        </button>
+        <button
+          class="tab-btn bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300"
+          data-tab="secondi">
+          Secondi
+        </button>
+      </div>
+
+      <div class="menu-content">
+        <!-- Antipasti -->
+        <div class="tab-panel active grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-12"
+          id="antipasti">
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Polpo e patate alla ligure</h3>
+              <span class="price text-xl font-bold text-primary">&euro;17.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Octopus and potatoes with pesto</p>
+            <p class="text-gray-600 italic mt-1">Poulpe et pommes de terre au pesto</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Cozze alla marinara</h3>
+              <span class="price text-xl font-bold text-primary">&euro;12.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Mussels marinara</p>
+            <p class="text-gray-600 italic mt-1">Moules &agrave; la marinara</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Tris di mare</h3>
+              <span class="price text-xl font-bold text-primary">&euro;18.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Mixed seafood salad</p>
+            <p class="text-gray-600 italic mt-1">Trio de fruits de mer</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Cocktail di gamberi</h3>
+              <span class="price text-xl font-bold text-primary">&euro;13.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Shrimp cocktail</p>
+            <p class="text-gray-600 italic mt-1">Cocktail de crevettes</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Crudo e bufala</h3>
+              <span class="price text-xl font-bold text-primary">&euro;13.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Prosciutto and buffalo mozzarella</p>
+            <p class="text-gray-600 italic mt-1">Prosciutto cru et mozzarella de bufflonne</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Caprese con bufala</h3>
+              <span class="price text-xl font-bold text-primary">&euro;12.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Tomatoes with buffalo mozzarella</p>
+            <p class="text-gray-600 italic mt-1">Tomates et mozzarella de bufflonne</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Acciughe impanate</h3>
+              <span class="price text-xl font-bold text-primary">&euro;13.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Fried breaded anchovies</p>
+            <p class="text-gray-600 italic mt-1">Anchois pan&eacute;s frits</p>
           </div>
         </div>
-        
-        
-        <div class="tab-content" id="primi">
-          
-          <div class="menu-items">
-            <div class="menu-item"><div class="menu-item-header"><h3>Tagliatelle vongole e zafferano</h3><span class="price">€20.00</span></div><p>Tagliatelle with clams and saffron</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Linguine allo scoglio</h3><span class="price">€17.00</span></div><p>Seafood linguine</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Linguine all’astice</h3><span class="price">€25.00</span></div><p>Linguine with lobster (min. 2 portions)</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Spaghetti alle vongole</h3><span class="price">€18.00</span></div><p>Spaghetti with clams</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Pasta cozze e patate</h3><span class="price">€13.00</span></div><p>Pasta with mussels and potatoes</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Penne gamberi e zucchine</h3><span class="price">€15.00</span></div><p>Penne with shrimp and zucchini</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Carbonara di pesce</h3><span class="price">€15.00</span></div><p>Seafood carbonara</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Trofie Vecchia Genova</h3><span class="price">€13.00</span></div><p>Pasta with pesto, potatoes and green beans</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Gnocchi al ragù</h3><span class="price">€11.00</span></div><p>Gnocchi with meat sauce</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Pasta pomodoro</h3><span class="price">€9.00</span></div><p>Pasta with tomato sauce</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Pasta al ragù</h3><span class="price">€10.00</span></div><p>Pasta with meat sauce</p></div>
+
+        <!-- Primi -->
+        <div class="tab-panel hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-12"
+          id="primi">
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Tagliatelle vongole e zafferano</h3>
+              <span class="price text-xl font-bold text-primary">&euro;20.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Tagliatelle with clams and saffron</p>
+            <p class="text-gray-600 italic mt-1">Tagliatelles aux palourdes et safran</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Linguine allo scoglio</h3>
+              <span class="price text-xl font-bold text-primary">&euro;17.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Seafood linguine</p>
+            <p class="text-gray-600 italic mt-1">Linguines aux fruits de mer</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Linguine all'astice</h3>
+              <span class="price text-xl font-bold text-primary">&euro;25.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Linguine with lobster (min. 2 portions)</p>
+            <p class="text-gray-600 italic mt-1">Linguines au homard (min. 2 portions)</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Spaghetti alle vongole</h3>
+              <span class="price text-xl font-bold text-primary">&euro;18.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Spaghetti with clams</p>
+            <p class="text-gray-600 italic mt-1">Spaghettis aux palourdes</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Pasta cozze e patate</h3>
+              <span class="price text-xl font-bold text-primary">&euro;13.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Pasta with mussels and potatoes</p>
+            <p class="text-gray-600 italic mt-1">P&acirc;tes aux moules et pommes de terre</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Penne gamberi e zucchine</h3>
+              <span class="price text-xl font-bold text-primary">&euro;15.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Penne with shrimp and zucchini</p>
+            <p class="text-gray-600 italic mt-1">Pennes aux crevettes et courgettes</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Carbonara di pesce</h3>
+              <span class="price text-xl font-bold text-primary">&euro;15.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Seafood carbonara</p>
+            <p class="text-gray-600 italic mt-1">Carbonara de la mer</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Trofie Vecchia Genova</h3>
+              <span class="price text-xl font-bold text-primary">&euro;13.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Pasta with pesto, potatoes and green beans</p>
+            <p class="text-gray-600 italic mt-1">Trofie au pesto, pommes de terre et haricots verts</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Gnocchi al rag&ugrave;</h3>
+              <span class="price text-xl font-bold text-primary">&euro;11.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Gnocchi with meat sauce</p>
+            <p class="text-gray-600 italic mt-1">Gnocchis au rag&ugrave; de viande</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Pasta pomodoro</h3>
+              <span class="price text-xl font-bold text-primary">&euro;9.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Pasta with tomato sauce</p>
+            <p class="text-gray-600 italic mt-1">P&acirc;tes &agrave; la sauce tomate</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Pasta al rag&ugrave;</h3>
+              <span class="price text-xl font-bold text-primary">&euro;10.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Pasta with meat sauce</p>
+            <p class="text-gray-600 italic mt-1">P&acirc;tes au rag&ugrave; de viande</p>
           </div>
         </div>
-        
-        
-        <div class="tab-content" id="secondi">
-        
-          <div class="menu-items">
-            <div class="menu-item"><div class="menu-item-header"><h3>Frittura mista di pesce</h3><span class="price">€18.00</span></div><p>Mixed fried seafood</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Frittura di calamari</h3><span class="price">€16.00</span></div><p>Fried calamari</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Frittura calamari e gamberi</h3><span class="price">€17.00</span></div><p>Fried calamari and shrimp</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Frittura calamari e verdure pastellate</h3><span class="price">€18.00</span></div><p>Fried calamari with battered vegetables</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Spada alla griglia</h3><span class="price">€16.00</span></div><p>Grilled swordfish</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Orata o branzino al forno</h3><span class="price">€16.00</span></div><p>Baked sea bream or sea bass</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Grigliata mista di pesce</h3><span class="price">€25.00</span></div><p>Mixed grilled fish</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Bistecca alla griglia</h3><span class="price">€16.00</span></div><p>Grilled steak</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Cotoletta con patatine</h3><span class="price">€12.00</span></div><p>Chicken cutlet with fries</p></div>
-            <!-- Contorni -->
-            <div class="menu-item"><div class="menu-item-header"><h3>Patatine fritte</h3><span class="price">€6.00</span></div><p>Fried potatoes</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Insalata mista</h3><span class="price">€6.50</span></div><p>Mixed salad</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Insalata di pomodori</h3><span class="price">€5.00</span></div><p>Tomato salad</p></div>
-            <div class="menu-item"><div class="menu-item-header"><h3>Verdure al vapore</h3><span class="price">€5.00</span></div><p>Steamed vegetables</p></div>
+
+        <!-- Secondi -->
+        <div class="tab-panel hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-12"
+          id="secondi">
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Frittura mista di pesce</h3>
+              <span class="price text-xl font-bold text-primary">&euro;18.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Mixed fried seafood</p>
+            <p class="text-gray-600 italic mt-1">Friture mixte de fruits de mer</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Frittura di calamari</h3>
+              <span class="price text-xl font-bold text-primary">&euro;16.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Fried calamari</p>
+            <p class="text-gray-600 italic mt-1">Friture de calamars</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Frittura calamari e gamberi</h3>
+              <span class="price text-xl font-bold text-primary">&euro;17.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Fried calamari and shrimp</p>
+            <p class="text-gray-600 italic mt-1">Friture de calamars et crevettes</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Frittura calamari e verdure
+                pastellate</h3>
+              <span class="price text-xl font-bold text-primary">&euro;18.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Fried calamari with battered vegetables</p>
+            <p class="text-gray-600 italic mt-1">Friture de calamars et l&eacute;gumes en p&acirc;te</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Spada alla griglia</h3>
+              <span class="price text-xl font-bold text-primary">&euro;16.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Grilled swordfish</p>
+            <p class="text-gray-600 italic mt-1">Espadon grill&eacute;</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Orata o branzino al forno</h3>
+              <span class="price text-xl font-bold text-primary">&euro;16.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Baked sea bream or sea bass</p>
+            <p class="text-gray-600 italic mt-1">Daurade ou bar au four</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Grigliata mista di pesce</h3>
+              <span class="price text-xl font-bold text-primary">&euro;25.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Mixed grilled fish</p>
+            <p class="text-gray-600 italic mt-1">Grillade mixte de poissons</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Bistecca alla griglia</h3>
+              <span class="price text-xl font-bold text-primary">&euro;16.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Grilled steak</p>
+            <p class="text-gray-600 italic mt-1">Steak grill&eacute;</p>
+          </div>
+
+          <div
+            class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="menu-item-leader">
+              <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Cotoletta con patatine</h3>
+              <span class="price text-xl font-bold text-primary">&euro;12.00</span>
+            </div>
+            <p class="text-gray-600 italic mt-2">Chicken cutlet with fries</p>
+            <p class="text-gray-600 italic mt-1">Escalope pan&eacute;e avec frites</p>
+          </div>
+
+          <div class="sm:col-span-2 lg:col-span-4 xl:col-span-5 space-y-6">
+            <h4 class="font-serif text-2xl font-semibold text-secondary">Contorni</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div
+                class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="menu-item-leader">
+                  <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Patatine fritte</h3>
+                  <span class="price text-xl font-bold text-primary">&euro;6.00</span>
+                </div>
+                <p class="text-gray-600 italic mt-2">Fried potatoes</p>
+                <p class="text-gray-600 italic mt-1">Pommes frites</p>
+              </div>
+
+              <div
+                class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="menu-item-leader">
+                  <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Insalata mista</h3>
+                  <span class="price text-xl font-bold text-primary">&euro;6.50</span>
+                </div>
+                <p class="text-gray-600 italic mt-2">Mixed salad</p>
+                <p class="text-gray-600 italic mt-1">Salade compos&eacute;e</p>
+              </div>
+
+              <div
+                class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="menu-item-leader">
+                  <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Insalata di pomodori</h3>
+                  <span class="price text-xl font-bold text-primary">&euro;5.00</span>
+                </div>
+                <p class="text-gray-600 italic mt-2">Tomato salad</p>
+                <p class="text-gray-600 italic mt-1">Salade de tomates</p>
+              </div>
+
+              <div
+                class="menu-item bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="menu-item-leader">
+                  <h3 class="dish-name font-serif text-xl font-semibold text-secondary">Verdure al vapore</h3>
+                  <span class="price text-xl font-bold text-primary">&euro;5.00</span>
+                </div>
+                <p class="text-gray-600 italic mt-2">Steamed vegetables</p>
+                <p class="text-gray-600 italic mt-1">L&eacute;gumes vapeur</p>
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div class="text-center">
-          <h2>Scopri anche le nostre pizze</h2>
-        <p>Abbiamo un ricco catalogo di pizze da cui scegliere, tra cui alcune pizze speciali! Scarica il menù per scoprirle tutte 🍕.</p>
-          <a href="menu.pdf" class="btn" download>Scarica il Menu Completo</a>
-        </div>
-        
+      </div>
+
+      <div class="bg-white p-12 rounded-2xl shadow-lg text-center">
+        <h3 class="font-serif text-3xl font-bold text-secondary mb-6">Scopri anche le nostre pizze</h3>
+        <p class="text-gray-600 mb-8 text-lg">
+          Abbiamo un ricco catalogo di pizze da cui scegliere, tra cui alcune pizze speciali! Scarica il men&ugrave; per
+          scoprirle tutte.
+        </p>
+        <a href="assets/pdf/menu.pdf"
+          class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-primary/30"
+          download>
+          Scarica il Menu Completo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold text-secondary mb-6">Galleria</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Uno scorcio della nostra sala e del dehor.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8">
+        <figure class="group relative rounded-2xl shadow-xl overflow-hidden lg:col-span-3">
+          <img src="assets/images/inside1.jpg" alt="Sala interna del ristorante La Rotonda"
+            class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" width="1200"
+            height="800">
+          <figcaption
+            class="absolute inset-0 bg-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+            <span class="text-white font-semibold text-lg tracking-wide">Sala interna</span>
+          </figcaption>
+        </figure>
+        <figure class="group relative rounded-2xl shadow-xl overflow-hidden lg:col-span-3">
+          <img src="assets/images/outside1.jpg" alt="Dehor del ristorante La Rotonda"
+            class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" width="1200"
+            height="800">
+          <figcaption
+            class="absolute inset-0 bg-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+            <span class="text-white font-semibold text-lg tracking-wide">Dehor</span>
+          </figcaption>
+        </figure>
+        <figure class="group relative rounded-2xl shadow-xl overflow-hidden lg:col-span-3">
+          <img src="assets/images/outside2.jpg" alt="Dehor del ristorante La Rotonda"
+            class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" width="1200"
+            height="800">
+          <figcaption
+            class="absolute inset-0 bg-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+            <span class="text-white font-semibold text-lg tracking-wide">Dehor</span>
+          </figcaption>
+        </figure>
+        <figure class="group relative rounded-2xl shadow-xl overflow-hidden lg:col-span-3">
+          <img src="assets/images/outside3.jpg" alt="Dehor del ristorante La Rotonda"
+            class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" width="1200"
+            height="800">
+          <figcaption
+            class="absolute inset-0 bg-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+            <span class="text-white font-semibold text-lg tracking-wide">Dehor</span>
+          </figcaption>
+        </figure>
+        <figure class="group relative rounded-2xl shadow-xl overflow-hidden lg:col-span-4">
+          <img src="assets/images/food1.jpg" alt="Penne gamberi e zucchine"
+            class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" width="1200"
+            height="800">
+          <figcaption
+            class="absolute inset-0 bg-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+            <span class="text-white font-semibold text-lg tracking-wide">Penne gamberi e zucchine</span>
+          </figcaption>
+        </figure>
+        <figure class="group relative rounded-2xl shadow-xl overflow-hidden lg:col-span-4">
+          <img src="assets/images/food2.jpg" alt="Fritto di calamari e gamberi"
+            class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" width="1200"
+            height="800">
+          <figcaption
+            class="absolute inset-0 bg-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+            <span class="text-white font-semibold text-lg tracking-wide">Fritto di calamari e gamberi</span>
+          </figcaption>
+        </figure>
+        <figure class="group relative rounded-2xl shadow-xl overflow-hidden lg:col-span-4">
+          <img src="assets/images/food3.jpg" alt="Linguine all&#39;astice"
+            class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" width="1200"
+            height="800">
+          <figcaption
+            class="absolute inset-0 bg-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+            <span class="text-white font-semibold text-lg tracking-wide">Linguine all&#39;astice</span>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <h2>Contattaci</h2>
-      <p class="section-description">Contattaci per qualsiasi informazione o per prenotazioni</p>
-      
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Informazioni</h3>
-          
-          <div class="info-item">
-            <div class="info-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-            </div>
-            <div class="info-content">
-              <h4>Indirizzo</h4>
-              <p>Corso G. Matteotti 2, 17019, Varazze (SV), Italia</p>
-            </div>
+  <section id="contact" class="py-20 bg-accent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold text-secondary mb-6">Contattaci</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Contattaci per qualsiasi informazione o per prenotazioni
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div class="space-y-8">
+          <div>
+            <h4 class="font-serif text-xl font-semibold text-secondary mb-2">Indirizzo</h4>
+            <p class="text-gray-600">Corso G. Matteotti 2, 17019, Varazze (SV), Italia</p>
           </div>
-          
-          <div class="info-item">
-            <div class="info-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-            </div>
-            <div class="info-content">
-              <h4>Orari di Apertura</h4>
-              <p>Lunedì - Domenica: 12:00 - 15:00, 19:00 - 23:00</p>
-              <p>Giorno di chiusura invernale: Mercoledì</p>
-            </div>
+
+          <div>
+            <h4 class="font-serif text-xl font-semibold text-secondary mb-2">Orari di Apertura</h4>
+            <p class="text-gray-600">Luned&igrave; - Domenica: 12:00 - 15:00, 19:00 - 23:00</p>
+            <p class="text-gray-600">Giorno di chiusura invernale: Mercoled&igrave;</p>
           </div>
-          
-          <div class="info-item">
-            <div class="info-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-            </div>
-            <div class="info-content">
-              <h4>Telefono</h4>
-              <p>019 939 9498</p>
-            </div>
+
+          <div>
+            <h4 class="font-serif text-xl font-semibold text-secondary mb-2">Telefono</h4>
+            <p class="text-gray-600">
+              <a href="tel:+390199399498"
+                class="text-primary hover:text-primary-dark font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30 rounded">
+                019 939 9498
+              </a>
+            </p>
           </div>
-          
-          <div class="info-item">
-            <div class="info-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </div>
-            <div class="info-content">
-              <h4>Email</h4>
-              <p>larotondavarazze@gmail.com</p>
-            </div>
+
+          <div>
+            <h4 class="font-serif text-xl font-semibold text-secondary mb-2">Email</h4>
+            <p class="text-gray-600">
+              <a href="mailto:larotondavarazze@gmail.com"
+                class="text-primary hover:text-primary-dark font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30 rounded">
+                larotondavarazze@gmail.com
+              </a>
+            </p>
           </div>
         </div>
-        
-        <div class="map-container">
-          <div class="map-container">
-            <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.2334343069884!2d8.574353476769535!3d44.35936687107454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d318ca6d69d3eb%3A0xe22c6187f3aa74d4!2sLa%20Rotonda!5e0!3m2!1sit!2sit!4v1714476034773!5m2!1sit!2sit"
-    width="100%"
-    height="100%"
-    style="border:0;"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-          </div>
-          
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.2334343069884!2d8.574353476769535!3d44.35936687107454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d318ca6d69d3eb%3A0xe22c6187f3aa74d4!2sLa%20Rotonda!5e0!3m2!1sit!2sit!4v1714476034773!5m2!1sit!2sit"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" class="w-full h-96">
+          </iframe>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h3>Ristorante La Rotonda</h3>
-          <p>Dove godere di un piacevole pasto a 2 passi dal mare</p>
+  <footer class="bg-secondary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <h3 class="font-serif text-2xl font-bold text-primary mb-4">Ristorante La Rotonda</h3>
+          <p class="text-gray-300">Dove godere di un piacevole pasto a 2 passi dal mare</p>
         </div>
-        
-        <div class="footer-col">
-          <h3>Orari di Apertura</h3>
-          <p>Lunedì - Domenica: 12:00 - 15:00, 19:00 - 23:00</p>
-          <p>Giorno di chiusura invernale: Mercoledì</p>
+
+        <div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Orari di Apertura</h3>
+          <p class="text-gray-300 mb-2">Luned&igrave; - Domenica: 12:00 - 15:00, 19:00 - 23:00</p>
+          <p class="text-gray-300">Giorno di chiusura invernale: Mercoled&igrave;</p>
         </div>
-        
-        <div class="footer-col">
-          <h3>Contatti</h3>
-          <div class="footer-contact">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>019 939 9498</span>
-          </div>
-          <div class="footer-contact">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <span>Corso G. Matteotti 2, 17019, Varazze (SV), Italia</span>
+
+        <div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Contatti</h3>
+          <p class="text-gray-300 mb-2">
+            Telefono: <a href="tel:+390199399498"
+              class="text-primary hover:text-primary-dark transition-colors duration-300">019 939 9498</a>
+          </p>
+          <p class="text-gray-300">Indirizzo: Corso G. Matteotti 2, 17019, Varazze (SV), Italia</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p class="text-gray-300 text-center md:text-left">
+            &copy; <span id="current-year"></span> Ristorante La Rotonda. Tutti i diritti riservati. P.IVA: 01571980091
+          </p>
+          <div class="flex flex-wrap justify-center md:justify-end space-x-6">
+            <a href="https://www.iubenda.com/privacy-policy/59063230"
+              class="text-gray-300 hover:text-primary transition-colors duration-300 text-sm">Privacy Policy</a>
+            <a href="https://www.iubenda.com/privacy-policy/59063230/cookie-policy"
+              class="text-gray-300 hover:text-primary transition-colors duration-300 text-sm">Cookie Policy</a>
+            <a href="assets/pdf/T&C.pdf" class="text-gray-300 hover:text-primary transition-colors duration-300 text-sm"
+              download>Termini e Condizioni</a>
           </div>
         </div>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; <span id="current-year"></span> Ristorante La Rotonda. Tutti i diritti riservati. P.IVA: 01571980091</p>
-        <a href="https://www.iubenda.com/privacy-policy/59063230" class="iubenda-white iubenda-noiframe iubenda-embed iub-legal-only iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
-        <a href="https://www.iubenda.com/privacy-policy/59063230/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
-        <a href="T&C.pdf" download>Scarica i Termini e Condizioni (PDF)</a>
-      </div>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="js/utils.js"></script>
 </body>
+
 </html>

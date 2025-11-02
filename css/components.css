@@ -1,0 +1,59 @@
+/* Custom components and utilities for La Rotonda */
+
+/* Menu card heading layout */
+.menu-item-leader {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.menu-item-leader .dish-name {
+    margin: 0;
+}
+
+.menu-item-leader .price {
+    font-weight: 600;
+    color: #e74c3c;
+}
+
+.menu-item-leader::after {
+    content: none;
+}
+
+/* Hero gradient overlay */
+.hero-gradient {
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(0, 0, 0, 0.6) 100%);
+}
+
+/* Mobile menu animations */
+.mobile-menu-enter {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-active {
+    transform: translateX(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e74c3c;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c0392b;
+}
