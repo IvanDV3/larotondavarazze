@@ -1,6 +1,4 @@
-// Utility functions for La Rotonda Restaurant
 
-// Hamburger menu functionality
 class MobileMenu {
     constructor() {
         this.toggle = document.getElementById('nav-toggle');
@@ -14,12 +12,10 @@ class MobileMenu {
         if (this.toggle && this.menu) {
             this.toggle.addEventListener('click', () => this.toggleMenu());
 
-            // Close menu when clicking on links
             this.links.forEach(link => {
                 link.addEventListener('click', () => this.closeMenu());
             });
 
-            // Close menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!this.menu.contains(e.target) && !this.toggle.contains(e.target)) {
                     this.closeMenu();
@@ -41,7 +37,6 @@ class MobileMenu {
     }
 }
 
-// Menu tabs functionality
 class MenuTabs {
     constructor() {
         this.buttons = document.querySelectorAll('.tab-btn');
@@ -83,7 +78,6 @@ class MenuTabs {
     }
 }
 
-// Smooth scroll functionality
 class SmoothScroll {
     constructor() {
         this.init();
@@ -114,7 +108,6 @@ class SmoothScroll {
     }
 }
 
-// Navbar scroll effect
 class NavbarScroll {
     constructor() {
         this.navbar = document.querySelector('.navbar');
@@ -146,14 +139,12 @@ class NavbarScroll {
     }
 }
 
-// Analytics tracking
 class Analytics {
     constructor() {
         this.init();
     }
 
     init() {
-        // Track button clicks
         const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
         buttons.forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -161,7 +152,6 @@ class Analytics {
             });
         });
 
-        // Track phone and email clicks
         const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
         const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
 
@@ -189,15 +179,12 @@ class Analytics {
     }
 }
 
-// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Set current year in footer
     const currentYear = document.getElementById('current-year');
     if (currentYear) {
         currentYear.textContent = new Date().getFullYear();
     }
 
-    // Initialize all components
     new MobileMenu();
     new MenuTabs();
     new SmoothScroll();
@@ -205,7 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
     new Analytics();
 });
 
-// Export for potential use
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         MobileMenu,
